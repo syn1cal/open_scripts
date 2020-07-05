@@ -2,10 +2,10 @@
   vars:
     lvm_volumes:
     - vg_name: appvg
-      lv_name: lv_test
+      lv_name: lv_app_build
       disk: sdc
-      lv_size: 5G
+      lv_size: 10G
       filesystem: xfs
-      mount: /opt/test
+      mount: /opt/build
   roles:
     - role: zaxos.lvm-ansible-role
