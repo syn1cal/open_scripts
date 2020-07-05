@@ -1,0 +1,12 @@
+- hosts: localhost
+  vars:
+    lvm_volumes:
+    - vg_name: appvg
+      lv_name: lv_test
+      disk: sdc
+      lv_size: 5G
+      filesystem: xfs
+      mount: /opt/test
+      
+  roles:
+    - role: zaxos.lvm-ansible-role
