@@ -1,0 +1,18 @@
+- hosts: localhost
+  vars:
+    lvm_volumes:
+    - vg_name: appvg
+      lv_name: lv_app_gitlab
+      disk: sdc
+      lv_size: 12G
+      filesystem: xfs
+      resizefs: true
+      mount: /var/opt/gitlab
+  roles:
+    - role: zaxos.lvm-ansible-role
+
+- hosts: localhost
+  vars:
+    gitlab_external_url: "https://gitlab.dpdt.local/"
+  roles:
+    - { role: geerlingguy.gitlab }
