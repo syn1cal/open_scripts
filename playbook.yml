@@ -2,10 +2,40 @@
   vars:
     lvm_volumes:
     - vg_name: appvg
+      lv_name: lv_app_gitlab
+      disk: sdc
+      lv_size: 12G
+      filesystem: xfs
+      resizefs: true
+      mount: /var/opt/gitlab
+    lvm_volumes:
+    - vg_name: appvg
       lv_name: lv_app_build
       disk: sdc
-      lv_size: 10G
+      lv_size: 12G
       filesystem: xfs
+      resizefs: true
       mount: /opt/build
   roles:
     - role: zaxos.lvm-ansible-role
+
+  tasks:
+  - name: Extend tmp
+    lvol:
+      vg: rootvg
+      lv: tmplv
+      size: 12G
+      resizefs: true
+  - name: extend optlv
+    lvol:
+      vg: rootvg
+      lv: optlv
+      size: 10G
+      resizefs: true
+      resizefs: true
+  - name: extend rootlv
+    lvol:
+      vg: rootvg
+      lv: rootlv
+      size: 12G
+      resizefs: true
