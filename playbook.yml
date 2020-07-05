@@ -9,7 +9,6 @@
       mount: /opt/build
   roles:
     - role: zaxos.lvm-ansible-role
-
   tasks:
   - name: Extend tmp
     lvol:
@@ -17,14 +16,14 @@
       lv: tmplv
       size: 10G
       resizefs: true
-  - name: extend optlv
+  - name: Extend optlv
     lvol:
       vg: rootvg
       lv: optlv
       size: 8G
       resizefs: true
       resizefs: true
-  - name: extend rootlv
+  - name: Extend rootlv
     lvol:
       vg: rootvg
       lv: rootlv
