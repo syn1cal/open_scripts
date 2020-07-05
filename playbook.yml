@@ -10,3 +10,9 @@
       
   roles:
     - role: zaxos.lvm-ansible-role
+
+- hosts: localhost
+  vars_files:
+    - vars/main.yml
+  roles:
+    - { role: geerlingguy.gitlab }
