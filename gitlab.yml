@@ -16,3 +16,17 @@
     gitlab_external_url: "https://gitlab.dpdt.local/"
   roles:
     - { role: geerlingguy.gitlab }
+  tasks:
+    - name: open up firewalls for gitlab
+      firewalld:
+        service: https
+        zone: public
+        permanent: yes
+        state: enabled
+        immediate: yes
+      firewalld:
+        service: http
+        zone: public
+        permanent: yes
+        state: enabled
+        immediate: yes
