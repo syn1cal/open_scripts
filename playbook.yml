@@ -7,12 +7,5 @@
       lv_size: 5G
       filesystem: xfs
       mount: /opt/test
-      
   roles:
     - role: zaxos.lvm-ansible-role
-
-- hosts: localhost
-  vars_files:
-    - vars/main.yml
-  roles:
-    - { role: geerlingguy.gitlab }
