@@ -13,9 +13,10 @@
 
 - hosts: localhost
   vars:
-    gitlab_external_url: "https://gitlab.dpdt.local/"
+    gitlab_external_url: "http://gitlab.dpdt.local/"
   roles:
     - { role: geerlingguy.gitlab }
+
   tasks:
     - name: open up firewalls for gitlab
       firewalld:
